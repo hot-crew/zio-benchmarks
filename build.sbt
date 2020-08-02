@@ -63,4 +63,4 @@ scalafixDependencies in ThisBuild += "com.nequissimus" %% "sort-imports" % "0.5.
 // Benchmarks
 // Parameters
 // iterations, warmup, forks, threads
-addCommandAlias("fut0", "jmh:run -i 1 -wi 1 -f1 -t2 .*FutureFiberSimpleBenchmark")
+addCommandAlias("fut0", "jmh:run -i 1 -wi 1 -f1 -t4 .*FutureFiberSimpleBenchmark")
