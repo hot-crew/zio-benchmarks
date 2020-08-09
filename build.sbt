@@ -9,8 +9,8 @@ inThisBuild(
   List(
     scalaVersion := "2.13.3",
     crossScalaVersions := Seq("2.12.12", "2.13.3"),
-    organization := "crew.zio",
-    homepage := Some(url("https://github.com/zio-crew/zio-benchmarks")),
+    organization := "crew.hot",
+    homepage := Some(url("https://github.com/hot-crew/zio-benchmarks")),
     startYear := Some(2020),
     licenses := List("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0")),
     developers := List(
@@ -22,7 +22,7 @@ inThisBuild(
       )
     ),
     scmInfo := Some(
-      ScmInfo(url("https://github.com/zio-crew/zio-benchmarks"), "scm:git@github.com:zio-crew/zio-benchmarks.git")
+      ScmInfo(url("https://github.com/hot-crew/zio-benchmarks"), "scm:git@github.com:hot-crew/zio-benchmarks.git")
     )
   )
 )
@@ -63,4 +63,4 @@ scalafixDependencies in ThisBuild += "com.nequissimus" %% "sort-imports" % "0.5.
 // Benchmarks
 // Parameters
 // iterations, warmup, forks, threads
-addCommandAlias("fut0", "jmh:run -i 1 -wi 1 -f1 -t4 .*FutureFiberSimpleBenchmark")
+addCommandAlias("fut0", "jmh:run -i 1 -wi 2 -f1 -t4 .*FutureFiberSimpleBenchmark")
