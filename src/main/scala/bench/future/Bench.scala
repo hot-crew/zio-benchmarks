@@ -12,8 +12,10 @@ import zio.{ Runtime }
 @BenchmarkMode(Array(Mode.Throughput))
 @OutputTimeUnit(TimeUnit.SECONDS)
 class FutureFiberSimpleBenchmark {
-  private val rt  = Runtime.default
-  private val num = Config.Num
+  private val rt = Runtime.default
+
+  @Param(Array("10", "20"))
+  var num: Int = _
 
   @Benchmark
   def futureBench() = Config.futureCalc(num)(workStealingEc)

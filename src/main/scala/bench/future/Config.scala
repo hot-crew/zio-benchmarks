@@ -11,7 +11,6 @@ import zio.blocking.blocking
 
 object Config {
 
-  val Num    = 100
   val fibers = 16
   val cores  = 4
 
