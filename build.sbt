@@ -37,10 +37,9 @@ lazy val commonSettings = Seq(
 )
 
 lazy val zioDeps = libraryDependencies ++= Seq(
-  "dev.zio" %% "zio"              % Version.zio,
-  "dev.zio" %% "zio-test"         % Version.zio % "test",
-  "dev.zio" %% "zio-test-sbt"     % Version.zio % "test",
-  "dev.zio" %% "zio-interop-cats" % Version.zioInteropCats
+  "dev.zio" %% "zio"          % Version.zio,
+  "dev.zio" %% "zio-test"     % Version.zio % "test",
+  "dev.zio" %% "zio-test-sbt" % Version.zio % "test"
 )
 
 lazy val root = (project in file("."))

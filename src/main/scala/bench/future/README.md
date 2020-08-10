@@ -19,7 +19,7 @@ In parallel mode, computation is split across `16 fibers` all run on the same th
 
 * Software
 - Linux lap 5.4.0-42-generic #46~18.04.1-Ubuntu 
-- OpenJDK build 11.0.9-testing+0-builds.shipilev.net-openjdk-shenandoah-jdk11-b289-20200806
+- OpenJDK 11.0.9-testing
 - Scala 2.13.3
 - ZIO 1.0.0
 
@@ -90,7 +90,7 @@ In parallel mode, computation is split across `16 fibers` all run on the same th
 
 The best performance for this simple `CPU-bound` task is obtained for `ZIO` **sequential computation** in one fiber on th default thread pool.
 
-Using blocking thread pool cuts performance `5x...8x` times.
+Using blocking thread pool cuts performance `5x...8x` times. 
 
 Using other thread pools (`Work Stealing` and `Caching`) won't improve performance much for this test
 
