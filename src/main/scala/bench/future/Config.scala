@@ -35,23 +35,23 @@ object Config {
 
   // Future, custom thread pool
   def futureCalc(N: Int)(implicit ec: ExecutionContext) = {
-    val fut = Future.traverse(1 to N)(i => Future(factorial(i.toLong)))
+    val fut = Future.traverse((1 to N).toList)(i => Future(factorial(i.toLong)))
     Await.result(fut, 1000.millis).sum
   }
 
   // Fiber, default thread pool
 
-  def fiberCalcSeq(N: Int) = ZIO.foreach(1 to N)(eff(_)).map(_.sum)
-  def fiberCalcPar(N: Int) = ZIO.foreachParN(fibers)(1 to N)(eff(_)).map(_.sum)
+  def fiberCalcSeq(N: Int) = ZIO.foreach((1 to N).toList)(eff(_)).map(_.sum)
+  def fiberCalcPar(N: Int) = ZIO.foreachParN(fibers)((1 to N).toList)(eff(_)).map(_.sum)
 
   // Fiber, blocking thread pool
 
-  def fiberCalcSeqBlock(N: Int) = blocking(ZIO.foreach(1 to N)(eff(_)).map(_.sum))
-  def fiberCalcParBlock(N: Int) = blocking(ZIO.foreachParN(fibers)(1 to N)(eff(_)).map(_.sum))
+  def fiberCalcSeqBlock(N: Int) = blocking(ZIO.foreach((1 to N).toList)(eff(_)).map(_.sum))
+  def fiberCalcParBlock(N: Int) = blocking(ZIO.foreachParN(fibers)((1 to N).toList)(eff(_)).map(_.sum))
 
   // Fiber, custom thread pool
 
-  def fiberCalcSeqCustom(N: Int)(ec: ExecutionContext) = ZIO.foreach(1 to N)(eff(_)).map(_.sum).on(ec)
-  def fiberCalcParCustom(N: Int)(ec: ExecutionContext) = ZIO.foreachParN(fibers)(1 to N)(eff(_)).map(_.sum).on(ec)
+  def fiberCalcSeqCustom(N: Int)(ec: ExecutionContext) = ZIO.foreach((1 to N).toList)(eff(_)).map(_.sum).on(ec)
+  def fiberCalcParCustom(N: Int)(ec: ExecutionContext) = ZIO.foreachParN(fibers)((1 to N).toList)(eff(_)).map(_.sum).on(ec)
 
 }
